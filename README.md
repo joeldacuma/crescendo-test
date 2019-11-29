@@ -1,4 +1,4 @@
-# recipelist
+# Recipe List
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
@@ -6,11 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ```
 Angular-cli 8+ (https://cli.angular.io)
-Firebase (https://firebase.google.com)
+JSON-server (https://github.com/typicode/json-server)
 Node.js (https://nodejs.org/en)
 ```
 
-## Install
+## Run Install
 
 On root folder:
 
@@ -18,42 +18,9 @@ On root folder:
 npm install
 ```
 
-## Integrate Firestore to Project
-
-1. Go to Firebase console and create a project.
-2. Go to Firebase project settings then on your apps choose add firebase to your web app.
-3. Fill-up app name then click register app.
-4. copy below firebase configuration: 
-```
-{
-    apiKey: "xxxxxxxxxx",
-    authDomain: "xxxxxxxx",
-    databaseURL: "xxxxxxxxxxxxx",
-    projectId: "xxxxxxx",
-    storageBucket: "xxxxxxxxx",
-    messagingSenderId: "xxxxxxx",
-    appId: "xxxxxxx",
-    measurementId: "xxxxxxx"
-  }
-```
-5. Paste config to root/environments/environment.ts
-```
-export const environment = {
-  production: false,
-  firebase: {
-    apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
-    authDomain: 'xxxxxxxxxxxxxxxxxxxxxx',
-    databaseURL: 'xxxxxxxxxxxxxxxxx',
-    projectId: 'xxxxxxxxxxxxx',
-    storageBucket: 'xxxxxxxxxxxx',
-    messagingSenderId: 'xxxxxxxxxxxxxx',
-    appId: 'xxxxxxxxxxxxxxxxxx',
-    measurementId: 'xxxxxxxxxxxxxx'
-  }
-}
-```
-6. Go to firebase console and create firestore database - Develop > Database > Create database
-7. On firestore start a collection with name 'lists'
+## Run api skills-test
+1. Go to frontend-api-skills-test folder
+2. Run npm run start:api
 
 ## Start Project
 
