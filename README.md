@@ -9,7 +9,17 @@ Angular-cli 8+ (https://cli.angular.io)
 JSON-server (https://github.com/typicode/json-server)
 Node.js (https://nodejs.org/en)
 ```
+1. Home Page:
 ![HOMEPAGE](https://github.com/joeldacuma/crescendo-test/blob/master/github-images/home_page.PNG)
+
+2. Recipe Page:
+![RECIPEPAGE](https://github.com/joeldacuma/crescendo-test/blob/master/github-images/recipe_page.PNG)
+
+3. Add/Update Recipe:
+![MODALPAGE](https://github.com/joeldacuma/crescendo-test/blob/master/github-images/modal_page.PNG)
+
+4. Special Alert:
+![SPECIALMODAL](https://github.com/joeldacuma/crescendo-test/blob/master/github-images/special_page.PNG)
 
 ## Run Install
 
