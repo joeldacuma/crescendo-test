@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RecipeComponent } from '../../widgets/recipe/recipe.component';
+import { RecipeModalComponent } from '../../widgets/recipe/recipe.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
   public recipes: any;
+  public isEdit: boolean;
 
   constructor(private dialog: MatDialog,
               private router: Router,
@@ -22,11 +23,18 @@ export class HomeComponent implements OnInit {
               private domSanitizer: DomSanitizer) {}
 
   ngOnInit() {
+    this.isEdit = false;
+    this.getAllRecipes();
+
+    localStorage.removeItem('recipe-details');
+  }
+
+  getAllRecipes() {
     this.apiService.getAllRecipes().subscribe((lists: any) => {
       const newList = [];
       lists.forEach(element => {
-         Object.assign(element, {url: environment.api + element.images.medium});
-         newList.push(element);
+        Object.assign(element, {url: environment.api + element.images.medium});
+        newList.push(element);
       });
       this.recipes = newList;
     });
@@ -36,23 +44,18 @@ export class HomeComponent implements OnInit {
     return this.domSanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
 
-  openCreateTask(event) {
-    if (event) {
-      const dialogRef = this.dialog.open(RecipeComponent, {
+  openAddRecipe() {
+      const dialogRef = this.dialog.open(RecipeModalComponent, {
         width: '200em',
         height: '50em',
-        data: {}
+        data: {
+          isEdit: false
+        }
       });
-    }
-  }
 
-  openEditTask(event) {
-    if (event) {
-      const dialogRef = this.dialog.open(RecipeComponent, {
-        width: '400px',
-        data: {  }
+      dialogRef.afterClosed().subscribe(() => {
+        this.getAllRecipes();
       });
-    }
   }
 
   gotoRecipeDetails(recipe) {

@@ -3,10 +3,10 @@
   <div class="collapse navbar-collapse">
     <div class="container-right">
       <div class="form-inline header-form">
-        <button mat-icon-button matTooltip="Add Recipe" class="header-icon" (click)="addTask()">
+        <button *ngIf="!isEdit" mat-icon-button matTooltip="Add Recipe" class="header-icon" (click)="addRecipe()">
           <i class="material-icons">add_circle_outline</i>
         </button>
-        <button mat-icon-button class="header-icon" (click)="editTask()" matTooltip="Edit Recipe" [disabled]="isEdit">
+        <button *ngIf="isEdit" mat-icon-button class="header-icon" (click)="editRecipe()" matTooltip="Edit Recipe">
           <i class="material-icons">create</i>
         </button>
       </div>

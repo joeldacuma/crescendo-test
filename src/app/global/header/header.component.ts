@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
-// import { FirebaseService } from '../../services/firebase.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,15 +11,17 @@ export class HeaderComponent implements OnInit {
   @Output() isCreateTask = new EventEmitter<boolean>();
   @Output() isEditTask = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() {
+    this.isEdit = false;
+   }
 
   ngOnInit() {}
 
-  addTask() {
+  addRecipe() {
     this.isCreateTask.emit(true);
   }
 
-  editTask() {
+  editRecipe() {
     this.isEditTask.emit(true);
   }
 }

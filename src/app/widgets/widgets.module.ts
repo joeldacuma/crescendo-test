@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeComponent } from './recipe/recipe.component';
+import { RecipeModalComponent } from './recipe/recipe.component';
 
 import { MatFormFieldModule,
          MatInputModule,
-         MatButtonModule } from '@angular/material';
+         MatButtonModule,
+        MatCheckboxModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpecialComponent } from './special/special.component';
 
 @NgModule({
   declarations: [
-    RecipeComponent
+    RecipeModalComponent,
+    SpecialComponent
   ],
   imports: [
     CommonModule,
@@ -17,13 +20,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
   entryComponents: [
-    RecipeComponent
+    RecipeModalComponent,
+    SpecialComponent
   ],
   exports: [
-    RecipeComponent
+    RecipeModalComponent,
+    SpecialComponent
   ]
 })
 export class WidgetsModule { }

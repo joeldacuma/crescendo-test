@@ -1,10 +1,14 @@
 <div>
   <div class="row">
     <div class="col-10">
-      <div>
+      <div *ngIf="!isEdit">
         <h1>Add Recipe</h1>
         <button mat-flat-button color="warn" (click)="submit()">Save</button>
       </div>
+      <div *ngIf="isEdit">
+          <h1>Update Recipe</h1>
+          <button mat-flat-button color="accent" (click)="update()">Update</button>
+        </div>
     </div>
     <div class="col-2">
       <div class="close-container" (click)="close()">
@@ -60,42 +64,69 @@
     </form>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <h3 class="align-text" >Add Ingredients:</h3>
-      <button mat-flat-button color="primary" (click)="addIngredients()">Add</button>
+  <div class="container" fxLayout="row">
+    <div fxLayout="column">
+        <div class="row">
+            <h3 class="align-text" >Add Ingredients:</h3>
+            <button mat-flat-button color="primary" (click)="addIngredients()">Add</button>
+          </div>
+
+        <div class="row">
+            <form *ngFor="let ingredient of ingredients">
+              <div class="row">
+                <div [formGroup]="ingredient">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input
+                      matInput
+                      formControlName="name"
+                      placeholder="Ingredient name..."
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input
+                      type="number"
+                      matInput
+                      formControlName="amount"
+                      placeholder="Enter amount..."
+                    />
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Measurement</mat-label>
+                    <input
+                      matInput
+                      formControlName="measurement"
+                      placeholder="Enter measurement..."
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+          </div>
     </div>
 
-      <form *ngFor="let ingredient of ingredients">
-          <div class="row">
-            <div [formGroup]="ingredient">
-              <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
+    <div class="row">
+        <h3 class="align-text" >Add Directions:</h3>
+        <button mat-flat-button color="primary" (click)="addDirections()">Add</button>
+      </div>
+
+    <div class="row" *ngFor="let direction of directions">
+        <form>
+            <div [formGroup]="direction">
+              <mat-form-field class="instruction-text" appearance="outline">
+                <mat-label>Instructions</mat-label>
                 <input
                   matInput
-                  formControlName="name"
-                  placeholder="Ingredient name..."
+                  formControlName="instructions"
+                  placeholder="Indicate steps..."
                 />
               </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label>Amount</mat-label>
-                <input
-                  type="number"
-                  matInput
-                  formControlName="amount"
-                  placeholder="Enter amount..."
-                />
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label>Measurement</mat-label>
-                <input
-                  matInput
-                  formControlName="measurement"
-                  placeholder="Enter measurement..."
-                />
-              </mat-form-field>
+              <mat-checkbox formControlName="optional" class="optional"></mat-checkbox>
             </div>
-          </div>
         </form>
+      </div>
+
   </div>
+
 </div>

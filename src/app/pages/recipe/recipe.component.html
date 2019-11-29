@@ -1,4 +1,6 @@
-<app-header></app-header>
+<app-header
+(isEditTask)="openEditRecipe($event)"
+[isEdit]="isEdit"></app-header>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li  [routerLink]="['/home']" class="breadcrumb-item active" aria-current="page">Home</li>
@@ -15,8 +17,13 @@
         </div>
       </div>
       <div class="col-lg-5 mb-5">
-          <ul *ngFor="let ingredient of recipeDetails.ingredients" class="list-group">
-              <li class="list-group-item">{{ingredient.amount ? ingredient.amount : ''}} {{ ingredient.measurement }} {{ingredient.name}}</li>
+          <ul *ngFor="let ingredient of ingredients" class="list-group">
+              <li class="list-group-item">
+                {{ingredient.amount ? ingredient?.value?.amount : ''}} {{ ingredient.measurement }} {{ingredient.name}}
+                <div class="special-button" *ngIf="ingredient.special">
+                    <button mat-raised-button color="primary" (click)="openSpecial(ingredient.special)">Special</button>
+                </div>
+              </li>
           </ul>
       </div>
     </div>

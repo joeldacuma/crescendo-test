@@ -17,8 +17,15 @@ export class ApiService {
     return this.http.get(environment.api + '/specials');
   }
 
+  getSpecialByIngredientId(ingredientId) {
+    return this.http.get(environment.api + '/specials?ingredientId=' + ingredientId);
+  }
+
   addRecipe(body) {
     return this.http.post(environment.api + '/recipes', body);
   }
 
+  updateRecipe(body, uuid) {
+    return this.http.patch(environment.api + '/recipes/' + uuid, body);
+  }
 }
