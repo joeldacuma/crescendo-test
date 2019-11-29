@@ -1,0 +1,101 @@
+<div>
+  <div class="row">
+    <div class="col-10">
+      <div>
+        <h1>Add Recipe</h1>
+        <button mat-flat-button color="warn" (click)="submit()">Save</button>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="close-container" (click)="close()">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form [formGroup]="recipeForm">
+      <div class="row">
+        <mat-form-field class="input-form" appearance="outline">
+          <mat-label>Recipe Name</mat-label>
+          <input
+            matInput
+            formControlName="recipeName"
+            placeholder="Enter food name..."
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="input-form" appearance="outline">
+          <mat-label>Description</mat-label>
+          <input
+            matInput
+            formControlName="description"
+            placeholder="Enter description..."
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Servings</mat-label>
+          <input
+            type="number"
+            matInput
+            formControlName="servings"
+            placeholder="Number of servings..."
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cook Time</mat-label>
+          <input
+            type="number"
+            matInput
+            formControlName="cookTime"
+            placeholder="Number of minutes..."
+          />
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h3 class="align-text" >Add Ingredients:</h3>
+      <button mat-flat-button color="primary" (click)="addIngredients()">Add</button>
+    </div>
+
+      <form *ngFor="let ingredient of ingredients">
+          <div class="row">
+            <div [formGroup]="ingredient">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input
+                  matInput
+                  formControlName="name"
+                  placeholder="Ingredient name..."
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  formControlName="amount"
+                  placeholder="Enter amount..."
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Measurement</mat-label>
+                <input
+                  matInput
+                  formControlName="measurement"
+                  placeholder="Enter measurement..."
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+  </div>
+</div>

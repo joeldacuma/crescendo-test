@@ -1,0 +1,44 @@
+<app-header></app-header>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li  [routerLink]="['/home']" class="breadcrumb-item active" aria-current="page">Home</li>
+      <li class="breadcrumb-item active" aria-current="page">Recipe</li>
+    </ol>
+</nav>
+  <div fxLayout="row" fxLayoutAlign="space-evenly start">
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="start center">
+      <h2>{{recipeDetails.title}}</h2>
+      <p>{{recipeDetails.description}}</p>
+      <div class="content-text" fxLayoutAlign="center">
+        <div class="content-text-title">
+          Ingredients
+        </div>
+      </div>
+      <div class="col-lg-5 mb-5">
+          <ul *ngFor="let ingredient of recipeDetails.ingredients" class="list-group">
+              <li class="list-group-item">{{ingredient.amount ? ingredient.amount : ''}} {{ ingredient.measurement }} {{ingredient.name}}</li>
+          </ul>
+      </div>
+    </div>
+    <div fxFlex="45" fxLayout="column">
+      <div fxLayout="row">
+          <img class="recipe-image" fxFill [src]="recipeImage" />
+      </div>
+      <div class="directions-text" fxLayout="row">
+          <div fxFlex="80" fxLayout="column" class="content-text-title">
+            Directions
+          </div>
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="center" class="content-text-subtitle">
+              {{recipeDetails.servings}} Servings
+        </div>
+        <div fxFlex="10" fxLayout="column" fxLayoutAlign="center" class="content-text-subtitle">
+            {{recipeDetails.cookTime}} Min
+        </div>
+      </div>
+      <div *ngFor="let direction of recipeDetails.directions; let i = index;" fxLayout="row">
+        <div class="direction-steps">
+          {{i+1}}. {{direction.instructions}} <span class="optional-text">{{direction.optional ? '- Optional' : ''}}</span>
+        </div>
+      </div>
+    </div>
+  </div>

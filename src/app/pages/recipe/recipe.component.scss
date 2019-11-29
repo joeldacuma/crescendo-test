@@ -1,0 +1,43 @@
+.breadcrumb {
+  li:hover {
+    color: #ec5e2c;
+    cursor: pointer;
+  }
+}
+
+.recipe-image {
+  margin: 10px;
+}
+
+.content-text {
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.content-text-title {
+  font-size: 30px;
+}
+
+.content-text-subtitle {
+  font-size: 16px;
+}
+
+.list-group {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.directions-text {
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.direction-steps {
+  margin-bottom: 5px;
+}
+
+.optional-text {
+  color: #ec5e2c;
+}

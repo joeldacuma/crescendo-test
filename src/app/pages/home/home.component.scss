@@ -1,0 +1,25 @@
+mat-card {
+  margin: 20px;
+  text-align: center;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-card-actions {
+  justify-content: center;
+}
+
+.recipe-title {
+  font-size: 20px;
+  color: #ffff;
+  font-weight: 600;
+  text-shadow: 2px 2px #000000;
+}
+
+.recipe-description {
+  font-size: 16px;
+  color: #ffff;
+  text-shadow: 1px 1px #000000;
+}

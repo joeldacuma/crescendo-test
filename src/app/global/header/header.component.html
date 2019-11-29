@@ -1,0 +1,15 @@
+<nav class="background navbar navbar-expand-lg">
+  <a class="navbar-brand"><h1>RECIPE LIST</h1></a>
+  <div class="collapse navbar-collapse">
+    <div class="container-right">
+      <div class="form-inline header-form">
+        <button mat-icon-button matTooltip="Add Recipe" class="header-icon" (click)="addTask()">
+          <i class="material-icons">add_circle_outline</i>
+        </button>
+        <button mat-icon-button class="header-icon" (click)="editTask()" matTooltip="Edit Recipe" [disabled]="isEdit">
+          <i class="material-icons">create</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

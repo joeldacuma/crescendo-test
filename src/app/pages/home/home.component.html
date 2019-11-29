@@ -1,0 +1,27 @@
+<app-header
+  (isCreateTask)="openCreateTask($event)"
+  [isEdit]="isEdited"
+  (isEditTask)="openEditTask($event)"
+  [selectedArr]="selectRows">
+</app-header>
+<div class="row">
+  <div *ngFor="let recipe of recipes" class="col-lg-3 mb-3">
+        <mat-card h-100 [style.background-image]="getImageUrl(recipe.url)">
+            <mat-card-header>
+              <mat-card-title>
+                <h3 class="recipe-title">{{ recipe.title }}</h3>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="recipe-description">
+                {{recipe.description}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" (click)="gotoRecipeDetails(recipe)">How to cook</button>
+            </mat-card-actions>
+          </mat-card>
+  </div>
+</div>
+
+
