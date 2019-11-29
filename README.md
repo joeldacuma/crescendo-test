@@ -9,7 +9,7 @@ Angular-cli 8+ (https://cli.angular.io)
 JSON-server (https://github.com/typicode/json-server)
 Node.js (https://nodejs.org/en)
 ```
-![HOMEPAGE] (https://raw.github.com/joeldacuma/crescendo-test/master/github-images/home_page.png)
+![HOMEPAGE](https://github.com/joeldacuma/crescendo-test/blob/master/github-images/home_page.PNG)
 
 ## Run Install
 
