@@ -96,6 +96,7 @@ export class RecipeModalComponent implements OnInit {
     Recipe[ `postDate`] = body.postDate;
     Recipe[`ingredients`] = ingredients;
     Recipe[`directions`] = directions;
+    Recipe[`images`] = '/img/queso_brat_scramble--m.jpg';
 
     this.apiService.addRecipe(Recipe).subscribe(value => {
        if (value) {
