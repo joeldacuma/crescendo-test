@@ -33,7 +33,9 @@ export class HomeComponent implements OnInit {
     this.apiService.getAllRecipes().subscribe((lists: any) => {
       const newList = [];
       lists.forEach(element => {
-        Object.assign(element, {url: environment.api + element.images.medium});
+        if (element.images) {
+          Object.assign(element, {url: environment.api + element.images.medium});
+        }
         newList.push(element);
       });
       this.recipes = newList;
